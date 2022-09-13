@@ -1,0 +1,227 @@
+<!-- =========burger menu================ -->
+<button class="burger-btn">open</button>
+<ul class="menu__list">
+  <li class="menu__item"><a href="#">one</a></li>
+  <li class="menu__item"><a href="#">two</a></li>
+  <li class="menu__item"><a href="#">three</a></li>
+</ul>
+<style>
+  .menu__list {
+    position: fixed;
+    left: -100%;
+    top: 25px;
+    background-color: #ccc;
+    padding: 10px 15px;
+    transition: all .3s;
+  }
+
+  .menu__list--active {
+    left: 0;
+  }
+
+  .menu__list a {
+    display: block;
+  }
+</style>
+<script>
+  $('.burger-btn').on('click', function () {
+    $('.menu__list').toggleClass('menu__list--active')
+  })
+</script>
+<!-- =========breadcrumbs================ -->
+<div class="breadcrumbs">
+  <ul class="breadcrumbs__list">
+    <li class="breadcrumbs__list-item">
+      <a class="breadcrumbs__list-link" href="#">One</a>
+    </li>
+    <li class="breadcrumbs__list-item">
+      <a class="breadcrumbs__list-link" href="#">Two</a>
+    </li>
+    <li class="breadcrumbs__list-item">
+      <span class="breadcrumbs__list-link">Three</span>
+    </li>
+  </ul>
+</div>
+<style>
+  .breadcrumbs__list-item {
+    display: inline-block;
+    padding-right: 16px;
+    margin-right: 10px;
+    position: relative;
+    font-size: 16px;
+    line-height: 18px;
+    color: #ccc;
+  }
+
+  .breadcrumbs__list-item::after {
+    content: '>';
+    position: absolute;
+    right: 0;
+  }
+
+  .breadcrumbs__list-item:last-child::after {
+    display: none;
+  }
+</style>
+<!-- ==========catalog filter============== -->
+<!-- 
+        @import '../../node_modules/jquery-form-styler/dist/jquery.formstyler';
+        @import '../../node_modules/jquery-form-styler/dist/jquery.formstyler.theme';
+
+        'node_modules/jquery-form-styler/dist/jquery.formstyler.js',  
+       -->
+<div class="catalog__filter-btn">
+  <select>
+    <option value="next">next</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+  <button class="catalog__filter-btn__grid"><img src="" alt="">grid</button>
+  <button class="catalog__filter-btn__line"><img src="" alt="">line</button>
+</div>
+<style>
+
+</style>
+<!-- ===========pagination============== -->
+<div class="pagination">
+  <ul class="pagination__list">
+    <li class="pagination__list-item active"><span>1</span></li>
+    <li class="pagination__list-item"><a href="#">2</a></li>
+    <li class="pagination__list-item"><a href="#">3</a></li>
+    <li class="pagination__list-item pagination__list-item--dots"><span>...</span></li>
+    <li class="pagination__list-item"><a href="#">11</a></li>
+  </ul>
+</div>
+<style>
+  .pagination {
+    width: 100%;
+  }
+
+  .pagination__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pagination__list-item {
+    padding: 6px 12px;
+    margin: 0 5px;
+    color: #ccc;
+    border: 1px solid transparent;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .pagination__list-item.active {
+    padding: 6px 12px;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  .pagination__list-item a {
+    display: block;
+  }
+</style>
+<!-- ================tabs================== -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <a class="tab tab--active" href="#tab-1">tab one</a>
+    <a class="tab" href="#tab-2">tab two</a>
+  </div>
+  <div class="tabs-container">
+    <div id="tab-1" class="tabs-content tabs-content--active">content one</div>
+    <div id="tab-2" class="tabs-content">content two</div>
+  </div>
+</div>
+<style>
+  .tabs-content {
+    display: none;
+  }
+
+  .tabs-content--active {
+    display: block;
+  }
+</style>
+<script>
+  $('.tab').on('click', function (e) {
+    e.preventDefault();
+    $($(this).siblings()).removeClass('tab--active');
+    $($(this).parent().siblings().find('div')).removeClass('tabs-content--active');
+
+    $(this).addClass('tab--active');
+    $($(this).attr('href')).addClass('tabs-content--active')
+  })
+</script>
+<!-- ============drop menu============= -->
+<nav class="drop-menu">
+  <ul class="drop-list">
+    <li class="drop-item">
+      <a class="drop-link" href="#">Ремонт квартир</a>
+      <ul class="drop-list__drop">
+        <li class="drop-item__drop">
+          <a class="drop-link__drop" href="#">Черновой</a>
+        </li>
+        <li class="drop-item__drop">
+          <a class="drop-link__drop" href="#">Косметический</a>
+        </li>
+        <li class="drop-item__drop">
+          <a class="drop-link__drop" href="#">Капитальный</a>
+        </li>
+      </ul>
+    </li>
+    <li class="drop-item">
+      <a class="drop-link" href="#">Ремонт комнат</a>
+    </li>
+    <li class="drop-item">
+      <a class="drop-link" href="#">Дома и коттеджи</a>
+    </li>
+    <li class="drop-item">
+      <a class="drop-link" href="#">Прочие услуги</a>
+    </li>
+  </ul>
+</nav>
+<style>
+  .drop-list__drop {
+    display: none;
+  }
+
+  .drop-item--active {
+    .drop-list__drop {
+      display: block;
+    }
+  }
+</style>
+<script>
+  $('.drop-item').on('click', function (e) {
+    e.preventDefault();
+    $($(this).siblings()).removeClass('drop-item--active');
+
+    $(this).toggleClass('drop-item--active');
+  })
+</script>
+<!-- ============checkbox input-radio============== -->
+<style>
+  .checkbox{
+    width: .1px;
+    height: .1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+  }
+</style>
+<!-- ========================================= -->
+<!-- 
+        "@fancyapps/fancybox": "^3.5.7",
+        "ion-rangeslider": "^2.3.1",
+        "jquery-form-styler": "^2.0.2",
+        "rateyo": "^2.3.2",
+        "slick-carousel": "^1.8.1",
+
+        'node_modules/rateyo/src/jquery.rateyo.js',
+        'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
+        'node_modules/slick-carousel/slick/slick.js',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
+
+        @import '../../node_modules/rateyo/src/jquery.rateyo';
+        @import '../../node_modules/ion-rangeslider/css/ion.rangeSlider'; 
+       -->
+<!-- ========================================= -->

@@ -1,0 +1,31 @@
+$colorff: #ffffff;
+$color00: #000000;
+$colorf2: #F2F2F2;
+$colorcb: #CBCBCB;
+$color3d: #6CAC3D;
+$colorc4: #C4C4C4;
+$colord6: #D6D6D6;
+$color16: #171616;
+$color59: #595959;
+$color72: #2D4872;
+$color75: #234875;
+
+$bg3d: #6CAC3D;
+$bg72: #2D4872;
+$bg48: #2E3648;
+$bge6: #E6E6E6;
+$bgff: #ffffff;
+$bgd6: #D6D6D6;
+$bgf2: #F2F2F2;
+
+%roboto-700 {
+  font-family: "Roboto-Bold", sans-serif;
+  font-weight: 400;
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers	});
+}
